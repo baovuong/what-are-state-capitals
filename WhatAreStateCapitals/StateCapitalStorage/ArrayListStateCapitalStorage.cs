@@ -80,9 +80,24 @@ namespace WhatAreStateCapitals.StateCapitalStorage
             return result;
         }
 
+        public List<StateCapital> GetStateCapitals()
+        {
+            List<StateCapital> result = new List<StateCapital>();
+            for (int i = 0; i < _stateCapitals.Length; i++)
+            {
+                result.Add(_stateCapitals[i]);
+            }
+            return result;
+        }
+
         public Dictionary<string, string> GetCapitalsDictionary()
         {
-            throw new NotImplementedException();
+            Dictionary<string, string> result = new Dictionary<string, string>();
+            foreach (StateCapital stateCapital in _stateCapitals)
+            {
+                result.Add(stateCapital.State, stateCapital.Capital);
+            }
+            return result;
         }
     }
 }

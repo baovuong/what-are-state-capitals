@@ -18,7 +18,10 @@ var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
 
+app.MapGet("api/statecapitals/", (IStateCapitalStorage stateCapitalStorage) => stateCapitalStorage.GetStateCapitals());
 app.MapGet("api/statecapitals/states", (IStateCapitalStorage stateCapitalStorage) => stateCapitalStorage.GetStates());
 app.MapGet("api/statecapitals/capitals", (IStateCapitalStorage stateCapitalStorage) => stateCapitalStorage.GetCapitals());
+app.MapGet("api/statecapitals/pairs", (IStateCapitalStorage stateCapitalStorage) => stateCapitalStorage.GetCapitalsDictionary());
+
 
 app.Run();
